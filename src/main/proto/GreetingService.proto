@@ -1,0 +1,21 @@
+syntax = "proto3";
+package com.github.mcoder;
+
+//request payload
+message HelloRequest {
+//   here 1 is a tag number and it should be unique within a message
+  string name = 1;
+  repeated string hobbies = 2;
+
+}
+
+message HelloResponse {
+  string greeting = 1;
+}
+
+
+// a service can have multiple operations
+service GreetingService {
+//  defines an rpc operation
+  rpc greeting(HelloRequest) returns(HelloResponse);
+}
